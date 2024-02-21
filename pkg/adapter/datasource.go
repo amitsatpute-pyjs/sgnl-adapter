@@ -181,7 +181,7 @@ func ParseResponse(body []byte) (objects []map[string]any, nextCursor string, er
 	// SCAFFOLDING #19 - pkg/adapter/datasource.go: Populate next page information (called cursor in SGNL adapters).
 	// Populate nextCursor with the cursor returned from the datasource, if present.
 	if data.More {
-		nextCursor = strconv.Itoa(data.Limit)
+		nextCursor = strconv.Itoa(data.Limit + data.Offset)
 	} else {
 		nextCursor = ""
 	}
